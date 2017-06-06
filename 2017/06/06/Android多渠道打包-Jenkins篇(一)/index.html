@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="随笔," />
+  <meta name="keywords" content="多渠道打包," />
 
 
 
@@ -87,26 +87,16 @@
 
 
 
-<meta name="description" content="写在前面的话嗯 聊聊架构。 这段时间一直在维护旧项目。 包括自己之前写的新项目 越来越发现 一个架构清晰的项目往往让人赏心悦目。不至于在一个bug丢过来之后手足无措。包括以后别人接收自己的项目 能很快上手 何乐而不为呢？
-曾经的”MVC”先从我们曾经的 “MVC” 说起, “MVC” 全名 “Model View Controller”.即 视图层（View)， 控制层（Controller)，模">
+<meta name="description" content="写在前面的话&amp;gt;项目中用的是jenkins+友盟 实现多渠道打包 老实讲这块我还没有完整走过一篇流程。jenkins打包 优点:配置完毕之后户需要做过多操作 实现多个渠道打包 缺点:随着业务逻辑的增加 代码量增加 job相应增加 结果是 慢。现在项目jenkins 打包需要一个半小时左右 很尿性。所以 不管怎么样了解一下多渠道打包还是有必要的 后面会提到美团的打包工具 以及github上面各种">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android开发-浅谈架构(一)">
-<meta property="og:url" content="https://yizuochengchi.github.io/2017/04/18/Android开发—浅谈架构(一)/index.html">
+<meta property="og:title" content="Android多渠道打包-Jenkins篇(一)">
+<meta property="og:url" content="https://yizuochengchi.github.io/2017/06/06/Android多渠道打包-Jenkins篇(一)/index.html">
 <meta property="og:site_name" content="ONE">
-<meta property="og:description" content="写在前面的话嗯 聊聊架构。 这段时间一直在维护旧项目。 包括自己之前写的新项目 越来越发现 一个架构清晰的项目往往让人赏心悦目。不至于在一个bug丢过来之后手足无措。包括以后别人接收自己的项目 能很快上手 何乐而不为呢？
-曾经的”MVC”先从我们曾经的 “MVC” 说起, “MVC” 全名 “Model View Controller”.即 视图层（View)， 控制层（Controller)，模">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/661873-38e5fc312f267807.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/661873-7c4dcaecf45b046a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/661873-a7ea533daa0316cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/661873-278cb97d11194f8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/661873-98206ab988bcefb0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/661873-7e89e714e8272e5c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-05-21T10:40:42.000Z">
+<meta property="og:description" content="写在前面的话&amp;gt;项目中用的是jenkins+友盟 实现多渠道打包 老实讲这块我还没有完整走过一篇流程。jenkins打包 优点:配置完毕之后户需要做过多操作 实现多个渠道打包 缺点:随着业务逻辑的增加 代码量增加 job相应增加 结果是 慢。现在项目jenkins 打包需要一个半小时左右 很尿性。所以 不管怎么样了解一下多渠道打包还是有必要的 后面会提到美团的打包工具 以及github上面各种">
+<meta property="og:updated_time" content="2017-06-06T09:49:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android开发-浅谈架构(一)">
-<meta name="twitter:description" content="写在前面的话嗯 聊聊架构。 这段时间一直在维护旧项目。 包括自己之前写的新项目 越来越发现 一个架构清晰的项目往往让人赏心悦目。不至于在一个bug丢过来之后手足无措。包括以后别人接收自己的项目 能很快上手 何乐而不为呢？
-曾经的”MVC”先从我们曾经的 “MVC” 说起, “MVC” 全名 “Model View Controller”.即 视图层（View)， 控制层（Controller)，模">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/661873-38e5fc312f267807.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="Android多渠道打包-Jenkins篇(一)">
+<meta name="twitter:description" content="写在前面的话&amp;gt;项目中用的是jenkins+友盟 实现多渠道打包 老实讲这块我还没有完整走过一篇流程。jenkins打包 优点:配置完毕之后户需要做过多操作 实现多个渠道打包 缺点:随着业务逻辑的增加 代码量增加 job相应增加 结果是 慢。现在项目jenkins 打包需要一个半小时左右 很尿性。所以 不管怎么样了解一下多渠道打包还是有必要的 后面会提到美团的打包工具 以及github上面各种">
 
 
 
@@ -134,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://yizuochengchi.github.io/2017/04/18/Android开发—浅谈架构(一)/"/>
+  <link rel="canonical" href="https://yizuochengchi.github.io/2017/06/06/Android多渠道打包-Jenkins篇(一)/"/>
 
 
 
 
 
-  <title> Android开发-浅谈架构(一) | ONE </title>
+  <title> Android多渠道打包-Jenkins篇(一) | ONE </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -303,7 +293,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://yizuochengchi.github.io/2017/04/18/Android开发—浅谈架构(一)/">
+    <link itemprop="mainEntityOfPage" href="https://yizuochengchi.github.io/2017/06/06/Android多渠道打包-Jenkins篇(一)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="PAN">
@@ -324,7 +314,7 @@
             
             
               
-                Android开发-浅谈架构(一)
+                Android多渠道打包-Jenkins篇(一)
               
             
           </h1>
@@ -339,8 +329,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-18T16:27:53+08:00">
-                2017-04-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-06T16:49:36+08:00">
+                2017-06-06
               </time>
             
 
@@ -357,7 +347,7 @@
 
           
           
-             <span id="/2017/04/18/Android开发—浅谈架构(一)/" class="leancloud_visitors" data-flag-title="Android开发-浅谈架构(一)">
+             <span id="/2017/06/06/Android多渠道打包-Jenkins篇(一)/" class="leancloud_visitors" data-flag-title="Android多渠道打包-Jenkins篇(一)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -386,68 +376,8 @@
       
 
       
-        <h3 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h3><p>嗯 聊聊架构。 这段时间一直在维护旧项目。 包括自己之前写的新项目 越来越发现 一个架构清晰的项目往往让人赏心悦目。不至于在一个bug丢过来之后手足无措。包括以后别人接收自己的项目 能很快上手 何乐而不为呢？</p>
-<h4 id="曾经的”MVC”"><a href="#曾经的”MVC”" class="headerlink" title="曾经的”MVC”"></a>曾经的”MVC”</h4><p>先从我们曾经的 “MVC” 说起, “MVC” 全名 “Model View Controller”.<br>即 视图层（View)， 控制层（Controller)，模型层（Model).<br>他们之间的关系 如图:<br><img src="http://upload-images.jianshu.io/upload_images/661873-38e5fc312f267807.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>视图层（View) 一般由 xml布局文件担任<br>控制层（Controller) 一般由 activity和fragment 担任<br>模型层 (Model) 一般指的是 抽离出来的接口扩展。 尝尝可以复用的那一部分。 你只需要把接口 在Controller 抛出。 更新 View即可。</p>
-<p>写到这里 我们知道android中 Controller 控制层一般有Activity（主要）和fragment 担任。但是activity类中 常常包含一些ui 初始化 或者 网络 第三方sdk 的初始化。这样写起代码 activity类就会变得臃肿。而且不够优雅。那么MVP就诞生了：<br><img src="http://upload-images.jianshu.io/upload_images/661873-7c4dcaecf45b046a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h4 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h4><p>MVP 是从MVC 中演变过来的。即：Model(模型层） View（视图层） Presenter（主要作为View和model交互的一个纽带 扮演 “主持交互”的角色。处理交互逻辑。）关系如图：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/661873-a7ea533daa0316cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MVP中的model层继续沿用MVC中的model"></p>
-<p>大家看这个图 也许不是很清楚或者说不是太理解。<br>在这里 “View” 由presenter中的接口担任 实现向View实现类通信，你也可以在Android组件中实现它。有时最好直接使用Activity，Fragment或自定义View。&gt;The view that receives commands from a presenter in MVP, is referred to as “view”</p>
-<p>先说Model: 它是一个负责管理数据的接口。模型的职责包括使用API、缓存数据、管理数据库等。该模型也可以是一个接口，与其他模块负责这些职责的沟通。例如，如果您使用的是存储库模式，则该模型可能是一个存储库。如果您使用的是干净的建筑，相反，该模型可以关联。（翻译过来略显生硬 简而言之 Model层是数据访问层，如数据库API或远程服务器API）</p>
-<p>Presenter:大家可以看到Model和View是完全没有交互的。那么 Presenter则担当Model与View之间的中间人。你所有的业务逻辑都属于它。Presenter负责查询模型和更新视图，响应用户交互更新模型。</p>
-<p>先说Model: 它是一个负责管理数据的接口。模型的职责包括使用API、缓存数据、管理数据库等。该模型也可以是一个接口，与其他模块负责这些职责的沟通。例如，如果您使用的是存储库模式，则该模型可能是一个存储库。如果您使用的是干净的建筑，相反，该模型可以关联。（翻译过来略显生硬 简而言之 Model层是数据访问层，如数据库API或远程服务器API）</p>
-<p>Presenter:大家可以看到Model和View是完全没有交互的。那么 Presenter则担当Model与View之间的中间人。你所有的业务逻辑都属于它。Presenter负责查询模型和更新视图，响应用户交互更新模型。</p>
-<p>View:The view can be implemented by Activities, Fragments, any Android widget or anything that can do operations like showing a ProgressBar, updating a TextView, populating a RecyclerView and so on.(这个翻译起来有点尴尬 感觉大家应该都能看懂）</p>
-<p>官方给的代码片段说明:</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/661873-278cb97d11194f8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/661873-98206ab988bcefb0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>在写MVP模型之前 我们有必要搞清楚这样几个问题：</p>
-<ol>
-<li>什么是 “View”</li>
-<li>怎么写Model</li>
-<li>如何理解View 界面 等</li>
-<li>如何写Presenter 并且完成很好的交互 解耦</li>
-</ol>
-<p><a href="http://www.jianshu.com/p/0590f530c617" target="_blank" rel="external">参考这篇文章</a> 作者写的很明白 我就不做多余的描述</p>
-<p>其实网上大部分讲解都是套三者之间的关系交互图来讲的。只有理解了尝试敲几遍就差不多会了。另外 符合项目需要的才是最好的。下面我尝试着动手仿照 ONE 一个app将MVP模式套入其中练手（项目会不断完善的 架构 分包开始)</p>
-<p>先截个图 看一下目前大致的结构。<br><img src="http://upload-images.jianshu.io/upload_images/661873-7e89e714e8272e5c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Dagger2+RxJava+Retrofit"></p>
-<h4 id="没用到Presenter之前-HomeActivity中："><a href="#没用到Presenter之前-HomeActivity中：" class="headerlink" title="没用到Presenter之前 HomeActivity中："></a>没用到Presenter之前 HomeActivity中：</h4><p><code></code></p>
-<pre><code>fragmentUtil.switchTo(OneFragment.class);
-radioGroup.setOnCheckedChangeListener((group1, checkedId) -&gt; {
-  switch (checkedId) {
-    case R.id.home_one:
-      fragmentUtil.switchTo(OneFragment.class);
-      break;
-    case R.id.home_reading:
-      fragmentUtil.switchTo(ReadingFragment.class);
-      break;
-    case R.id.home_music:
-      fragmentUtil.switchTo(MusicFragment.class);
-      break;
-    case R.id.home_movie:
-      fragmentUtil.switchTo(MovieFragment.class);
-      break;
-    default:
-      break;
-  }
-});
-</code></pre><p><code></code></p>
-<h4 id="Presenter实现"><a href="#Presenter实现" class="headerlink" title="Presenter实现"></a>Presenter实现</h4><p><code></code></p>
-<pre><code>if(presenter==null)
-presenter = new MainTabPresenter(this, mBinding.radio);
-presenter.switchTo();
-</code></pre><p><br>代码排版不是很好。<br>github地址<a href="https://github.com/yizuochengchi/ONE" target="_blank" rel="external">Dagger2+Retrofit+RxJava</a><br>简单的逻辑代码交由Presenter 和Model协作实现。可能表述 和理解的不是太好 欢迎指正。Demo架构Dagger2+RxJava+Retrofit 雏形已经大致出现 后面会陆续补充一些使用的小技巧 和 第三方的插入 譬如 微信热修复 等等吧。谢谢大家~</p>
-<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p><a href="https://news.realm.io/news/eric-maxwell-mvc-mvp-and-mvvm-on-android/" target="_blank" rel="external">MVC vs. MVP vs. MVVM on Android</a></p>
-<p><a href="https://www.tianmaying.com/tutorial/AndroidMVC" target="_blank" rel="external">Android App的设计架构：MVC,MVP,MVVM与架构经验谈</a></p>
-<p><a href="https://github.com/googlesamples/android-architecture" target="_blank" rel="external">官方MVP Dagger2示例</a></p>
-<p>等等 分享几个免费的api(侵删 谢谢)<br><a href="http://gank.io/api" target="_blank" rel="external">干货Api</a></p>
-<p><a href="https://www.heweather.com/documents/api/v5/weather" target="_blank" rel="external">和风天气</a></p>
-<p><a href="http://dev.dafan.info/detail/233373?p=55" target="_blank" rel="external">ONE一个接口</a></p>
-<p>欢迎加群:<br>QQ 群 521039620<br><a href="http://www.jianshu.com/p/8418756eb708" target="_blank" rel="external">简书博客地址</a></p>
-<h3 id="吐槽"><a href="#吐槽" class="headerlink" title="吐槽"></a>吐槽</h3><p>想起自己最初写的项目 惨不忍睹 罪过罪过</p>
-<p>北京的夏天和冬季 似乎比别的城市来的早一些，宿夜过后 尘嚣一笔带过一个又一个早晨。<br>（太他妈热了 我只想说）好吧 这段项目需求暂时告一段落 又有时间好好折腾了 哈哈。</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=28406900&auto=1&height=66"></iframe>
-
+        <h4 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h4><p>&gt;<br>项目中用的是jenkins+友盟 实现多渠道打包 老实讲这块我还没有完整走过一篇流程。jenkins打包 优点:配置完毕之后户需要做过多操作 实现多个渠道打包 缺点:随着业务逻辑的增加 代码量增加 job相应增加 结果是 慢。现在项目jenkins 打包需要一个半小时左右 很尿性。所以 不管怎么样了解一下多渠道打包还是有必要的 后面会提到美团的打包工具 以及github上面各种工具。 那么先从jenkins开始:</p>
+<h4 id="jenkins下载与配置"><a href="#jenkins下载与配置" class="headerlink" title="jenkins下载与配置"></a>jenkins下载与配置</h4><p><a href="http://mirrors.jenkins-ci.org/war/latest/jenkins.war" target="_blank" rel="external">jenkins下载地址</a> 傻瓜式安装 安装完毕 Safari自动打开:<br>&gt;</p>
 
       
     </div>
@@ -477,7 +407,7 @@ presenter.switchTo();
       
         <div class="post-tags">
           
-            <a href="/tags/随笔/" rel="tag"># 随笔</a>
+            <a href="/tags/多渠道打包/" rel="tag"># 多渠道打包</a>
           
         </div>
       
@@ -490,8 +420,8 @@ presenter.switchTo();
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/14/再也不用写selector/" rel="next" title="再也不用写selector">
-                <i class="fa fa-chevron-left"></i> 再也不用写selector
+              <a href="/2017/06/06/Android项目总结(二)/" rel="next" title="Android项目总结(二)">
+                <i class="fa fa-chevron-left"></i> Android项目总结(二)
               </a>
             
           </div>
@@ -499,10 +429,6 @@ presenter.switchTo();
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/12/Android开发-浅谈架构(二)/" rel="prev" title="Android开发-浅谈架构(二)">
-                Android开发-浅谈架构(二) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -624,7 +550,7 @@ presenter.switchTo();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面的话"><span class="nav-number">1.</span> <span class="nav-text">写在前面的话</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#曾经的”MVC”"><span class="nav-number">1.1.</span> <span class="nav-text">曾经的”MVC”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MVP"><span class="nav-number">1.2.</span> <span class="nav-text">MVP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#没用到Presenter之前-HomeActivity中："><span class="nav-number">1.3.</span> <span class="nav-text">没用到Presenter之前 HomeActivity中：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Presenter实现"><span class="nav-number">1.4.</span> <span class="nav-text">Presenter实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考："><span class="nav-number">2.</span> <span class="nav-text">参考：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#吐槽"><span class="nav-number">3.</span> <span class="nav-text">吐槽</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#写在前面的话"><span class="nav-number">1.</span> <span class="nav-text">写在前面的话</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jenkins下载与配置"><span class="nav-number">2.</span> <span class="nav-text">jenkins下载与配置</span></a></li></ol></div>
             
 
           </div>

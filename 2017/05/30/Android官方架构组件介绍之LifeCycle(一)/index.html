@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="随笔," />
+  <meta name="keywords" content="架构组件," />
 
 
 
@@ -92,17 +92,19 @@
 我们常用的是OOP编程(即 面向对象编程),那么 什么是 AOP编程(Aspect Oriented Programming 中译 面向切向编程)? 它与插件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android开发-Android官方架构组件介绍之LifeCycle(一)">
-<meta property="og:url" content="https://yizuochengchi.github.io/2017/05/30/Android开发-架构篇学习(一)/index.html">
+<meta property="og:url" content="https://yizuochengchi.github.io/2017/05/30/Android官方架构组件介绍之LifeCycle(一)/index.html">
 <meta property="og:site_name" content="ONE">
 <meta property="og:description" content="写在前面的话前面学习Android架构 MVC 以及MVP 有架构这块有一个简单的认识和总结 本来打算在MVP这块终止 过渡到MVVM的学习。结果参考google todoapp等几个demo。发现这方面东西很多。发现了很多新东西 譬如 
 
 我们常用的是OOP编程(即 面向对象编程),那么 什么是 AOP编程(Aspect Oriented Programming 中译 面向切向编程)? 它与插件">
-<meta property="og:updated_time" content="2017-06-06T08:47:33.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/661873-6afde3b1f05abcec.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-06-06T10:11:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android开发-Android官方架构组件介绍之LifeCycle(一)">
 <meta name="twitter:description" content="写在前面的话前面学习Android架构 MVC 以及MVP 有架构这块有一个简单的认识和总结 本来打算在MVP这块终止 过渡到MVVM的学习。结果参考google todoapp等几个demo。发现这方面东西很多。发现了很多新东西 譬如 
 
 我们常用的是OOP编程(即 面向对象编程),那么 什么是 AOP编程(Aspect Oriented Programming 中译 面向切向编程)? 它与插件">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/661873-6afde3b1f05abcec.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -130,7 +132,7 @@
 
 
 
-  <link rel="canonical" href="https://yizuochengchi.github.io/2017/05/30/Android开发-架构篇学习(一)/"/>
+  <link rel="canonical" href="https://yizuochengchi.github.io/2017/05/30/Android官方架构组件介绍之LifeCycle(一)/"/>
 
 
 
@@ -212,7 +214,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -222,7 +224,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -245,7 +247,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            Suche
+            Search
           </a>
         </li>
       
@@ -299,7 +301,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://yizuochengchi.github.io/2017/05/30/Android开发-架构篇学习(一)/">
+    <link itemprop="mainEntityOfPage" href="https://yizuochengchi.github.io/2017/05/30/Android官方架构组件介绍之LifeCycle(一)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="PAN">
@@ -333,7 +335,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-30T17:39:49+08:00">
                 2017-05-30
@@ -353,7 +355,7 @@
 
           
           
-             <span id="/2017/05/30/Android开发-架构篇学习(一)/" class="leancloud_visitors" data-flag-title="Android开发-Android官方架构组件介绍之LifeCycle(一)">
+             <span id="/2017/05/30/Android官方架构组件介绍之LifeCycle(一)/" class="leancloud_visitors" data-flag-title="Android开发-Android官方架构组件介绍之LifeCycle(一)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -386,12 +388,83 @@
 <ol>
 <li><p>我们常用的是OOP编程(即 面向对象编程),那么 什么是 AOP编程(Aspect Oriented Programming 中译 面向切向编程)? 它与插件化开发 组件化开发 有什么联系？(关于插件化 组件化等这方面我还没有认真了解过 只是在了解热修复的时候 大概听说过 最初热修复出来是为了app模块化升级以及解决少量bug 总是对这一块 不了解 所以表达的很模糊 后面学习之后 会做更正 // todo)。</p>
 </li>
-<li><p><a href="https://developer.android.com/topic/libraries/architecture/guide.html#common_architectural_principles" target="_blank" rel="external">Guide to App Architecture</a>Google 官方推出应用开发架构指南里面提到的 LifeCycle, ViewModel等关键词。<br>…</p>
+<li><p><a href="https://developer.android.com/topic/libraries/architecture/guide.html#common_architectural_principles" target="_blank" rel="external">Guide to App Architecture</a> Google 官方推出应用开发架构指南里面提到的 A collection of samples using the Architecture Components:<br>Room<br>Lifecycle-aware components<br>ViewModels<br>LiveData<br>…</p>
 </li>
 </ol>
-<p>由上 存在很多疑惑 慢慢学习 并揭开这些面纱。参考 <a href="https://github.com/googlesamples/android-architecture-components" target="_blank" rel="external">android-architecture-components</a>  继续在 <a href="https://github.com/yizuochengchi/ONE" target="_blank" rel="external">ONE</a>上面做改动</p>
-<p>Android Architecture Components Basic Sample 包含三部分:<br>Room<br>ViewModels<br>LiveData</p>
-<p>待完善… todo</p>
+<p>由上 存在很多疑惑 慢慢学习 并揭开这些面纱。参考 <a href="https://github.com/googlesamples/android-architecture-components" target="_blank" rel="external">android-architecture-components</a>  继续在 <a href="https://github.com/yizuochengchi/ONE" target="_blank" rel="external">ONE</a>上面做改动. </p>
+<hr>
+<p><img src="http://upload-images.jianshu.io/upload_images/661873-6afde3b1f05abcec.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="帅帅的分割图"></p>
+<h4 id="android-architecture-components"><a href="#android-architecture-components" class="headerlink" title="android-architecture-components"></a><strong><a href="https://github.com/googlesamples/android-architecture-components" target="_blank" rel="external">android-architecture-components</a></strong></h4><p>Android Architecture Components Basic Sample 包含三部分:<br>Room<br>ViewModels<br>LiveData</p>
+<p>下载demo 编译 BasicSample正常 运行报错: Error:(31, 17) 警告: Schema export directory is not provided to the annotation processor so we cannot export the schema. You can either provide <code>room.schemaLocation</code> annotation processor argument OR set exportSchema to false.  google 一下 解决方案 如 <a href="https://github.com/googlesamples/android-architecture-components/issues/12" target="_blank" rel="external">issues 12</a><br><code></code></p>
+<pre><code>    Try to export the schema by adding this to your app/build.gradle
+
+    android {
+        ...
+        defaultConfig {
+        ...
+        javaCompileOptions {
+        annotationProcessorOptions {
+            arguments = [&quot;room.schemaLocation&quot;:
+                         &quot;$projectDir/schemas&quot;.toString()]
+            }
+        }
+    }
+}
+</code></pre><p></p>
+<p>P.S. 看别人真是一种享受 细节：<br><code></code></p>
+<pre><code>ext {
+    buildToolsVersion = &quot;25.0.2&quot;
+    supportLibVersion = &quot;25.3.1&quot;
+    runnerVersion = &quot;0.5&quot;
+    rulesVersion = &quot;0.5&quot;
+    espressoVersion = &quot;2.2.2&quot;
+    archLifecycleVersion = &quot;1.0.0-alpha1&quot;
+    archRoomVersion = &quot;1.0.0-alpha1&quot;
+}
+
+引用:  compile &apos;com.android.support:appcompat-v7:&apos;+rootProject.supportLibVersion;
+</code></pre><p></p>
+<h4 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h4><p>首先在工程根目录的build.gradle中添加一下内容：<br><code>    </code></p>
+<pre><code>allprojects {
+     repositories {
+  jcenter()
+  maven { url &apos;https://maven.google.com&apos; }  
+   }
+}
+</code></pre><p><br><code></code></p>
+<pre><code> // For Lifecycles, LiveData, and ViewModel Room
+compile &apos;android.arch.lifecycle:extensions:&apos; + rootProject.archLifecycleVersion;
+compile &apos;android.arch.persistence.room:runtime:&apos; +  rootProject.archRoomVersion;
+annotationProcessor &quot;android.arch.lifecycle:compiler:&quot; + rootProject.archLifecycleVersion;
+annotationProcessor &quot;android.arch.persistence.room:compiler:&quot; + rootProject.archRoomVersion;
+
+ext {
+    buildToolsVersion = &quot;25.0.2&quot;
+    supportLibVersion = &quot;25.2.0&quot;
+    archLifecycleVersion = &quot;1.0.0-alpha1&quot;
+    archRoomVersion = &quot;1.0.0-alpha1&quot;
+}
+</code></pre><p></p>
+<p>具体见代码 SampleReadingFragment中<br><code></code></p>
+<pre><code>  @Override
+  public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+      super.onActivityCreated(savedInstanceState);
+      SampleReadingViewModel viewModel =  ViewModelProviders.of(this).get(SampleReadingViewModel.class);                
+      subscribeUi(viewModel);
+    }
+
+  private void subscribeUi(SampleReadingViewModel viewModel) { 
+      viewModel.getData().observe(this, dataEntities -&gt; {
+        if(dataEntities!=null){
+            mList = dataEntities;
+            fragmentAdapter.setData(mList);
+        }
+});
+}
+</code></pre><p><br>注意 public SampleReadingViewModel(Application app)  里面的Application不要写成了你自己集成了那个。(踩坑。。运行了好一会 找不到原因）</p>
+<p>关于Lifecycle更多了解 后续会陆续补充。个人感觉将MVP更加简化的同时 将各个模块之间完全分离开来 具体见项目<a href="https://github.com/yizuochengchi/ONE/blob/master/app/src/main/java/com/one/mvp/ui/basicSample/fragment/SampleReadingFragment.java" target="_blank" rel="external">ONE SampleReadingFragment</a></p>
+<p>参考:<br><a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html" target="_blank" rel="external">developer lifecycle</a><br><a href="https://developer.android.com/topic/libraries/architecture/guide.html#common_architectural_principles" target="_blank" rel="external">developer common_architectural_principles</a><br><a href="https://github.com/googlesamples/android-architecture-components/tree/master/BasicSample" target="_blank" rel="external">BasicSample</a></p>
+<p>欢迎加群:<br>QQ 群 521039620<br>提意见:<br>QQ:1831808374<br><a href="https://github.com/yizuochengchi/ONE" target="_blank" rel="external">github</a></p>
 
       
     </div>
@@ -421,7 +494,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/随笔/" rel="tag"># 随笔</a>
+            <a href="/tags/架构组件/" rel="tag"># 架构组件</a>
           
         </div>
       
@@ -497,10 +570,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -521,7 +594,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives">
                 <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -533,8 +606,8 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -568,7 +641,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#写在前面的话"><span class="nav-number">1.</span> <span class="nav-text">写在前面的话</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#写在前面的话"><span class="nav-number">1.</span> <span class="nav-text">写在前面的话</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#android-architecture-components"><span class="nav-number">2.</span> <span class="nav-text">android-architecture-components</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境配置"><span class="nav-number">3.</span> <span class="nav-text">环境配置</span></a></li></ol></div>
             
 
           </div>
@@ -600,7 +673,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
