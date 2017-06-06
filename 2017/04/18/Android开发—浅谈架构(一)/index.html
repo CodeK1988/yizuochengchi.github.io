@@ -1,0 +1,1060 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="随笔," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="写在前面的话嗯 聊聊架构。 这段时间一直在维护旧项目。 包括自己之前写的新项目 越来越发现 一个架构清晰的项目往往让人赏心悦目。不至于在一个bug丢过来之后手足无措。包括以后别人接收自己的项目 能很快上手 何乐而不为呢？
+曾经的”MVC”先从我们曾经的 “MVC” 说起, “MVC” 全名 “Model View Controller”.即 视图层（View)， 控制层（Controller)，模">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android开发-浅谈架构(一)">
+<meta property="og:url" content="https://yizuochengchi.github.io/2017/04/18/Android开发—浅谈架构(一)/index.html">
+<meta property="og:site_name" content="ONE">
+<meta property="og:description" content="写在前面的话嗯 聊聊架构。 这段时间一直在维护旧项目。 包括自己之前写的新项目 越来越发现 一个架构清晰的项目往往让人赏心悦目。不至于在一个bug丢过来之后手足无措。包括以后别人接收自己的项目 能很快上手 何乐而不为呢？
+曾经的”MVC”先从我们曾经的 “MVC” 说起, “MVC” 全名 “Model View Controller”.即 视图层（View)， 控制层（Controller)，模">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/661873-38e5fc312f267807.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/661873-7c4dcaecf45b046a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/661873-a7ea533daa0316cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/661873-278cb97d11194f8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/661873-98206ab988bcefb0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/661873-7e89e714e8272e5c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-05-21T10:40:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android开发-浅谈架构(一)">
+<meta name="twitter:description" content="写在前面的话嗯 聊聊架构。 这段时间一直在维护旧项目。 包括自己之前写的新项目 越来越发现 一个架构清晰的项目往往让人赏心悦目。不至于在一个bug丢过来之后手足无措。包括以后别人接收自己的项目 能很快上手 何乐而不为呢？
+曾经的”MVC”先从我们曾经的 “MVC” 说起, “MVC” 全名 “Model View Controller”.即 视图层（View)， 控制层（Controller)，模">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/661873-38e5fc312f267807.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://yizuochengchi.github.io/2017/04/18/Android开发—浅谈架构(一)/"/>
+
+
+
+
+
+  <title> Android开发-浅谈架构(一) | ONE </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a5e7527c5ecdcb0cfb452e53f0e7b7e3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ONE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">量变引起质变 不行多敲两遍</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Suche
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://yizuochengchi.github.io/2017/04/18/Android开发—浅谈架构(一)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="PAN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/13393518?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android开发-浅谈架构(一)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-18T16:27:53+08:00">
+                2017-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/18/Android开发—浅谈架构(一)/" class="leancloud_visitors" data-flag-title="Android开发-浅谈架构(一)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h3><p>嗯 聊聊架构。 这段时间一直在维护旧项目。 包括自己之前写的新项目 越来越发现 一个架构清晰的项目往往让人赏心悦目。不至于在一个bug丢过来之后手足无措。包括以后别人接收自己的项目 能很快上手 何乐而不为呢？</p>
+<h4 id="曾经的”MVC”"><a href="#曾经的”MVC”" class="headerlink" title="曾经的”MVC”"></a>曾经的”MVC”</h4><p>先从我们曾经的 “MVC” 说起, “MVC” 全名 “Model View Controller”.<br>即 视图层（View)， 控制层（Controller)，模型层（Model).<br>他们之间的关系 如图:<br><img src="http://upload-images.jianshu.io/upload_images/661873-38e5fc312f267807.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>视图层（View) 一般由 xml布局文件担任<br>控制层（Controller) 一般由 activity和fragment 担任<br>模型层 (Model) 一般指的是 抽离出来的接口扩展。 尝尝可以复用的那一部分。 你只需要把接口 在Controller 抛出。 更新 View即可。</p>
+<p>写到这里 我们知道android中 Controller 控制层一般有Activity（主要）和fragment 担任。但是activity类中 常常包含一些ui 初始化 或者 网络 第三方sdk 的初始化。这样写起代码 activity类就会变得臃肿。而且不够优雅。那么MVP就诞生了：<br><img src="http://upload-images.jianshu.io/upload_images/661873-7c4dcaecf45b046a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h4><p>MVP 是从MVC 中演变过来的。即：Model(模型层） View（视图层） Presenter（主要作为View和model交互的一个纽带 扮演 “主持交互”的角色。处理交互逻辑。）关系如图：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/661873-a7ea533daa0316cc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MVP中的model层继续沿用MVC中的model"></p>
+<p>大家看这个图 也许不是很清楚或者说不是太理解。<br>在这里 “View” 由presenter中的接口担任 实现向View实现类通信，你也可以在Android组件中实现它。有时最好直接使用Activity，Fragment或自定义View。&gt;The view that receives commands from a presenter in MVP, is referred to as “view”</p>
+<p>先说Model: 它是一个负责管理数据的接口。模型的职责包括使用API、缓存数据、管理数据库等。该模型也可以是一个接口，与其他模块负责这些职责的沟通。例如，如果您使用的是存储库模式，则该模型可能是一个存储库。如果您使用的是干净的建筑，相反，该模型可以关联。（翻译过来略显生硬 简而言之 Model层是数据访问层，如数据库API或远程服务器API）</p>
+<p>Presenter:大家可以看到Model和View是完全没有交互的。那么 Presenter则担当Model与View之间的中间人。你所有的业务逻辑都属于它。Presenter负责查询模型和更新视图，响应用户交互更新模型。</p>
+<p>先说Model: 它是一个负责管理数据的接口。模型的职责包括使用API、缓存数据、管理数据库等。该模型也可以是一个接口，与其他模块负责这些职责的沟通。例如，如果您使用的是存储库模式，则该模型可能是一个存储库。如果您使用的是干净的建筑，相反，该模型可以关联。（翻译过来略显生硬 简而言之 Model层是数据访问层，如数据库API或远程服务器API）</p>
+<p>Presenter:大家可以看到Model和View是完全没有交互的。那么 Presenter则担当Model与View之间的中间人。你所有的业务逻辑都属于它。Presenter负责查询模型和更新视图，响应用户交互更新模型。</p>
+<p>View:The view can be implemented by Activities, Fragments, any Android widget or anything that can do operations like showing a ProgressBar, updating a TextView, populating a RecyclerView and so on.(这个翻译起来有点尴尬 感觉大家应该都能看懂）</p>
+<p>官方给的代码片段说明:</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/661873-278cb97d11194f8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/661873-98206ab988bcefb0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>在写MVP模型之前 我们有必要搞清楚这样几个问题：</p>
+<ol>
+<li>什么是 “View”</li>
+<li>怎么写Model</li>
+<li>如何理解View 界面 等</li>
+<li>如何写Presenter 并且完成很好的交互 解耦</li>
+</ol>
+<p><a href="http://www.jianshu.com/p/0590f530c617" target="_blank" rel="external">参考这篇文章</a> 作者写的很明白 我就不做多余的描述</p>
+<p>其实网上大部分讲解都是套三者之间的关系交互图来讲的。只有理解了尝试敲几遍就差不多会了。另外 符合项目需要的才是最好的。下面我尝试着动手仿照 ONE 一个app将MVP模式套入其中练手（项目会不断完善的 架构 分包开始)</p>
+<p>先截个图 看一下目前大致的结构。<br><img src="http://upload-images.jianshu.io/upload_images/661873-7e89e714e8272e5c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Dagger2+RxJava+Retrofit"></p>
+<h4 id="没用到Presenter之前-HomeActivity中："><a href="#没用到Presenter之前-HomeActivity中：" class="headerlink" title="没用到Presenter之前 HomeActivity中："></a>没用到Presenter之前 HomeActivity中：</h4><p><code></code></p>
+<pre><code>fragmentUtil.switchTo(OneFragment.class);
+radioGroup.setOnCheckedChangeListener((group1, checkedId) -&gt; {
+  switch (checkedId) {
+    case R.id.home_one:
+      fragmentUtil.switchTo(OneFragment.class);
+      break;
+    case R.id.home_reading:
+      fragmentUtil.switchTo(ReadingFragment.class);
+      break;
+    case R.id.home_music:
+      fragmentUtil.switchTo(MusicFragment.class);
+      break;
+    case R.id.home_movie:
+      fragmentUtil.switchTo(MovieFragment.class);
+      break;
+    default:
+      break;
+  }
+});
+</code></pre><p><code></code></p>
+<h4 id="Presenter实现"><a href="#Presenter实现" class="headerlink" title="Presenter实现"></a>Presenter实现</h4><p><code></code></p>
+<pre><code>if(presenter==null)
+presenter = new MainTabPresenter(this, mBinding.radio);
+presenter.switchTo();
+</code></pre><p><br>代码排版不是很好。<br>github地址<a href="https://github.com/yizuochengchi/ONE" target="_blank" rel="external">Dagger2+Retrofit+RxJava</a><br>简单的逻辑代码交由Presenter 和Model协作实现。可能表述 和理解的不是太好 欢迎指正。Demo架构Dagger2+RxJava+Retrofit 雏形已经大致出现 后面会陆续补充一些使用的小技巧 和 第三方的插入 譬如 微信热修复 等等吧。谢谢大家~</p>
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p><a href="https://news.realm.io/news/eric-maxwell-mvc-mvp-and-mvvm-on-android/" target="_blank" rel="external">MVC vs. MVP vs. MVVM on Android</a></p>
+<p><a href="https://www.tianmaying.com/tutorial/AndroidMVC" target="_blank" rel="external">Android App的设计架构：MVC,MVP,MVVM与架构经验谈</a></p>
+<p><a href="https://github.com/googlesamples/android-architecture" target="_blank" rel="external">官方MVP Dagger2示例</a></p>
+<p>等等 分享几个免费的api(侵删 谢谢)<br><a href="http://gank.io/api" target="_blank" rel="external">干货Api</a></p>
+<p><a href="https://www.heweather.com/documents/api/v5/weather" target="_blank" rel="external">和风天气</a></p>
+<p><a href="http://dev.dafan.info/detail/233373?p=55" target="_blank" rel="external">ONE一个接口</a></p>
+<p>欢迎加群:<br>QQ 群 521039620<br><a href="http://www.jianshu.com/p/8418756eb708" target="_blank" rel="external">简书博客地址</a></p>
+<h3 id="吐槽"><a href="#吐槽" class="headerlink" title="吐槽"></a>吐槽</h3><p>想起自己最初写的项目 惨不忍睹 罪过罪过</p>
+<p>北京的夏天和冬季 似乎比别的城市来的早一些，宿夜过后 尘嚣一笔带过一个又一个早晨。<br>（太他妈热了 我只想说）好吧 这段项目需求暂时告一段落 又有时间好好折腾了 哈哈。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=28406900&auto=1&height=66"></iframe>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/随笔/" rel="tag"># 随笔</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/14/再也不用写selector/" rel="next" title="再也不用写selector">
+                <i class="fa fa-chevron-left"></i> 再也不用写selector
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/12/Android开发-浅谈架构(二)/" rel="prev" title="Android开发-浅谈架构(二)">
+                Android开发-浅谈架构(二) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODE1Mi80NzI1"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/13393518?v=3&s=460"
+               alt="PAN" />
+          <p class="site-author-name" itemprop="name">PAN</p>
+           
+              <p class="site-description motion-element" itemprop="description">在我手的 将要丢失 他 一直在寻找生活的 刺</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面的话"><span class="nav-number">1.</span> <span class="nav-text">写在前面的话</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#曾经的”MVC”"><span class="nav-number">1.1.</span> <span class="nav-text">曾经的”MVC”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MVP"><span class="nav-number">1.2.</span> <span class="nav-text">MVP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#没用到Presenter之前-HomeActivity中："><span class="nav-number">1.3.</span> <span class="nav-text">没用到Presenter之前 HomeActivity中：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Presenter实现"><span class="nav-number">1.4.</span> <span class="nav-text">Presenter实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考："><span class="nav-number">2.</span> <span class="nav-text">参考：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#吐槽"><span class="nav-number">3.</span> <span class="nav-text">吐槽</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PAN</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("uF8ltpMGyxqanHTFn2I9wqNu-gzGzoHsz", "Wz07VRFq80zHOeJbk5uY7wvj");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
